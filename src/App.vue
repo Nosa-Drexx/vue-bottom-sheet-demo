@@ -2,6 +2,7 @@
 import { ref } from 'vue'
 import { BottomSheet } from '@nosadev/vue-bottom-sheet'
 import { BFormCheckbox, BButton } from 'bootstrap-vue-next'
+import { ColorPicker } from 'vue3-colorpicker'
 
 interface ConfigureSheetI {
   showSheet: boolean
@@ -96,12 +97,13 @@ const updateConfigureSheet = (value: unknown, key: ConfigureSheetKeys) => {
           Sets Overylay background
           <strong>(overlayBackground)</strong>:
         </p>
-
-        <input
-          name="overlay-background"
-          id="overlay-background"
-          type="color"
-          v-model="configureSheet.overlayBackground"
+        <ColorPicker
+          :pureColor="configureSheet.overlayBackground"
+          @pureColorChange="
+            (e) => {
+              configureSheet.overlayBackground = e
+            }
+          "
         />
       </label>
       <label for="background" class="d-flex gap-2 flex-column">
@@ -110,7 +112,14 @@ const updateConfigureSheet = (value: unknown, key: ConfigureSheetKeys) => {
           <strong>(background)</strong>:
         </p>
 
-        <input name="background" id="background" type="color" v-model="configureSheet.background" />
+        <ColorPicker
+          :pureColor="configureSheet.background"
+          @pureColorChange="
+            (e) => {
+              configureSheet.background = e
+            }
+          "
+        />
       </label>
     </div>
     <!-- Number values -->
