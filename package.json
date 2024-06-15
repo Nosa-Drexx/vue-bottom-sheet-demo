@@ -13,7 +13,7 @@
     "format": "prettier --write src/"
   },
   "dependencies": {
-    "@nosadev/vue-bottom-sheet": "^1.0.6",
+    "@nosadev/vue-bottom-sheet": "^1.0.9",
     "bootstrap": "^5.3.3",
     "bootstrap-vue-next": "^0.21.2",
     "vue": "^3.4.21",
